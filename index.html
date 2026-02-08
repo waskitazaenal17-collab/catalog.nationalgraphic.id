@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog National Graphic ID - Professional Convection</title>
+    <title>National Graphic ID - Industrial Garment Manufacturer</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        
-                        'ng-primary': '#003333',   /* <-- Warna Utama (Deep Teal National Graphic) */
-                        'ng-accent': '#FFD700',    /* Emas sebagai warna sekunder/highlight */
-                        'ng-light': '#F4F7F6',     /* Background terang dengan sedikit tint teal */
-                        'ng-dark-teal': '#002222', /* Warna yang lebih gelap untuk footer/overlay */
+                        /* PALET WARNA BARU - INDUSTRIAL & PREMIUM (NO YELLOW) */
+                        'corp-teal': '#003333',    /* Warna Utama (Deep Forest) */
+                        'corp-silver': '#E5E1DA',  /* Aksen Platinum/Silver Hangat (Pengganti Kuning) */
+                        'corp-slate': '#F0F2F5',   /* Background terang bersih */
+                        'corp-dark': '#0A1F1F',    /* Versi lebih gelap untuk kontras */
                     },
                     fontFamily: {
-                        'heading': ['Montserrat', 'sans-serif'],
-                        'body': ['Open Sans', 'sans-serif'],
+                        /* Font baru untuk kesan lebih industrial/teknikal */
+                        'heading': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'], /* Untuk detail teknis */
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        'tightest': '-.075em',
                     }
                 }
             }
@@ -32,426 +37,299 @@
     </script>
     
     <style>
-        /* Efek Zoom Halus untuk foto produk */
+        /* Efek Zoom Halus */
         .zoom-effect { overflow: hidden; }
-        .zoom-effect img { transition: transform 0.5s ease; }
-        .zoom-effect:hover img { transform: scale(1.05); }
+        .zoom-effect img { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .zoom-effect:hover img { transform: scale(1.03); }
         
-        /* Garis Bawah Aksen Emas */
-        .title-underline::after {
+        /* Garis bawah baru (Silver halus) */
+        .industrial-underline::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 4px;
-            background: #FFD700;
-            margin: 15px 0; /* Rata kiri */
+            width: 60px;
+            height: 2px;
+            background: #E5E1DA; /* Silver */
+            margin: 15px 0;
         }
-        .title-underline-center::after {
+        .industrial-underline-center::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 4px;
-            background: #FFD700;
-            margin: 15px auto; /* Rata tengah */
+            width: 60px;
+            height: 2px;
+            background: #E5E1DA; /* Silver */
+            margin: 15px auto;
         }
     </style>
 </head>
-<body class="font-body text-gray-800 bg-ng-light">
+<body class="font-body text-gray-800 bg-corp-slate">
 
-    <nav class="bg-ng-primary text-white py-4 px-6 sticky top-0 z-50 shadow-xl border-b-2 border-ng-accent">
+    <nav class="bg-corp-teal text-white py-4 px-6 sticky top-0 z-50 shadow-md border-b border-white/10">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="border-2 border-ng-accent p-1 rounded-sm group-hover:bg-ng-accent transition duration-300">
-                    <div class="w-6 h-6 bg-ng-accent group-hover:bg-ng-primary transition duration-300 rounded-sm"></div>
-                </div>
-                <span class="font-heading font-extrabold text-xl tracking-tight">
-                    NATIONAL<span class="text-ng-accent">GRAPHIC</span>.ID
-                </span>
+            <a href="#" class="flex flex-col leading-none group">
+                <span class="font-heading font-black text-xl tracking-tightest uppercase">National</span>
+                <span class="font-heading font-bold text-xl tracking-widest text-corp-silver group-hover:text-white transition">Graphic.ID</span>
             </a>
             
-            <ul class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-wide items-center">
-                <li><a href="#intro" class="hover:text-ng-accent transition relative py-2 after:absolute after:bottom-0 after:left-0 after:bg-ng-accent after:h-0.5 after:w-0 hover:after:w-full after:transition-all">Story</a></li>
-                <li><a href="#teknologi" class="hover:text-ng-accent transition relative py-2 after:absolute after:bottom-0 after:left-0 after:bg-ng-accent after:h-0.5 after:w-0 hover:after:w-full after:transition-all">Teknologi & Kualitas</a></li>
-                <li><a href="#portfolio" class="hover:text-ng-accent transition relative py-2 after:absolute after:bottom-0 after:left-0 after:bg-ng-accent after:h-0.5 after:w-0 hover:after:w-full after:transition-all">Portfolio</a></li>
-                <li><a href="#katalog" class="bg-ng-accent text-ng-primary px-6 py-3 rounded font-bold hover:bg-white hover:shadow-lg transition">Lihat Katalog</a></li>
+            <ul class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-wider items-center font-mono">
+                <li><a href="#intro" class="hover:text-corp-silver transition">Company</a></li>
+                <li><a href="#teknologi" class="hover:text-corp-silver transition">Industrial Tech</a></li>
+                <li><a href="#portfolio" class="hover:text-corp-silver transition">Portfolio</a></li>
+                <li><a href="#katalog" class="bg-white text-corp-teal px-6 py-2 rounded-sm font-bold hover:bg-corp-silver transition border border-white">Katalog</a></li>
             </ul>
 
-            <button class="md:hidden text-ng-accent text-2xl"><i class="fas fa-bars"></i></button>
+            <button class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <header class="relative h-[85vh] flex items-center justify-center bg-ng-dark-teal overflow-hidden">
+    <header class="relative h-[85vh] flex items-center justify-start bg-corp-dark overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=2070&auto=format&fit=crop" 
-                 class="w-full h-full object-cover opacity-30 mix-blend-luminosity" alt="Background Textile">
-            <div class="absolute inset-0 bg-gradient-to-b from-ng-primary via-ng-primary/90 to-ng-dark-teal/95"></div>
+            <img src="https://images.unsplash.com/photo-1564698739424-535521171016?q=80&w=2070&auto=format&fit=crop" 
+                 class="w-full h-full object-cover opacity-40 grayscale" alt="Industrial Garment Machine">
+            <div class="absolute inset-0 bg-gradient-to-r from-corp-teal via-corp-teal/80 to-transparent"></div>
         </div>
         
-        <div class="relative z-10 text-center px-4 max-w-5xl">
-            <div class="inline-flex items-center gap-2 border border-ng-accent/50 px-5 py-2 rounded-full mb-8 bg-ng-primary/50 backdrop-blur-md">
-                <i class="fas fa-certificate text-ng-accent"></i>
-                <p class="text-ng-accent font-bold tracking-widest uppercase text-xs md:text-sm">Professional Convection Partner</p>
-            </div>
-            
-            <h1 class="font-heading text-5xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
-                MAKE YOUR<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-ng-accent via-yellow-200 to-ng-accent">DESIGN</span><br>
-                AS YOU LIKE.
-            </h1>
-            
-            <p class="text-gray-200 text-lg md:text-2xl mb-12 max-w-3xl mx-auto font-light italic leading-relaxed">
-                "Kami akan menjadi partner Anda membangun cerita yang takkan terlupakan dalam setiap detail jahitan."
-            </p>
-            
-            <div class="flex flex-col md:flex-row gap-5 justify-center">
-                <a href="#teknologi" class="bg-ng-accent text-ng-primary px-8 py-4 rounded-full font-bold shadow-[0_0_25px_rgba(255,215,0,0.2)] hover:bg-white hover:scale-105 transition duration-300 flex items-center justify-center gap-2">
-                    <i class="fas fa-layer-group"></i> Lihat Standar Kualitas
-                </a>
-                <a href="https://wa.me/6281575672565" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-ng-primary hover:scale-105 transition duration-300 flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-xl"></i> Konsultasi Project
-                </a>
+        <div class="relative z-10 px-6 max-w-7xl mx-auto w-full">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 border border-corp-silver/30 px-4 py-2 rounded-sm mb-8 bg-corp-teal/80 backdrop-blur-md font-mono text-xs">
+                    <i class="fas fa-industry text-corp-silver"></i>
+                    <span class="text-corp-silver uppercase tracking-widest">Garment Manufacturing Partner</span>
+                </div>
+                
+                <h1 class="font-heading text-5xl md:text-7xl font-black text-white mb-6 leading-none tracking-tight">
+                    PRECISION<br>
+                    <span class="text-corp-silver">IN EVERY STITCH.</span>
+                </h1>
+                
+                <p class="text-gray-300 text-lg md:text-xl mb-12 max-w-2xl font-light leading-relaxed border-l-2 border-corp-silver pl-6">
+                    Mitra manufaktur garmen industri di Wonogiri. Kami mengubah desain Anda menjadi produk berkualitas tinggi dengan standar presisi pabrik.
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-5">
+                    <a href="#teknologi" class="bg-corp-silver text-corp-teal px-8 py-4 rounded-sm font-bold hover:bg-white transition duration-300 flex items-center justify-center gap-2 uppercase tracking-wider text-sm">
+                        <i class="fas fa-cogs"></i> Lihat Teknologi Kami
+                    </a>
+                    <a href="https://wa.me/6281575672565" class="border-2 border-corp-silver text-corp-silver px-8 py-4 rounded-sm font-bold hover:bg-corp-silver hover:text-corp-teal transition duration-300 flex items-center justify-center gap-2 uppercase tracking-wider text-sm">
+                        <i class="fab fa-whatsapp text-lg"></i> Konsultasi Produksi
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <section id="intro" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="relative group">
-                <div class="absolute -top-5 -left-5 w-full h-full border-[3px] border-ng-primary/20 rounded-tr-[3rem] rounded-bl-[3rem] -z-10 group-hover:border-ng-accent transition duration-500"></div>
-                <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-                     class="relative rounded-tr-[3rem] rounded-bl-[3rem] shadow-2xl z-10 w-full object-cover h-[500px] filter grayscale-[30%] group-hover:grayscale-0 transition duration-500" alt="Proses Produksi National Graphic">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1563194593-5c48373fb408?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                     class="relative rounded-sm shadow-xl z-10 w-full object-cover h-[400px] grayscale hover:grayscale-0 transition duration-700" alt="Quality Control Garment">
+                <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-corp-silver rounded-sm -z-10"></div>
             </div>
             
             <div>
-                <h2 class="font-heading text-4xl font-extrabold mb-8 text-ng-primary title-underline leading-tight">
-                    Lebih Dari Sekadar<br>Konveksi Biasa.
+                <h2 class="font-heading text-3xl font-bold mb-8 text-corp-teal industrial-underline leading-tight uppercase">
+                    Identitas Industrial Baru
                 </h2>
-                <div class="prose prose-lg text-gray-600">
+                <div class="prose prose-lg text-gray-600 font-light">
                     <p class="mb-6 leading-relaxed">
-                        Di <strong>National Graphic ID</strong>, kami memadukan seni desain dengan presisi teknologi industri. Warna <span class="font-bold text-ng-primary">#003333 (Deep Teal)</span> yang kami usung melambangkan kedalaman komitmen kami terhadap profesionalitas dan kualitas yang tak tertawar.
+                        <strong>National Graphic ID</strong> berdiri sebagai entitas manufaktur garmen yang independen dan profesional. Kami memisahkan diri dari estetika media populer untuk fokus pada inti bisnis kami: **Kualitas Industrial dan Ketepatan Produksi.**
                     </p>
                     <p class="mb-8 leading-relaxed">
-                        Kami memahami bahwa setiap seragam perusahaan atau jaket komunitas adalah investasi citra. Itulah mengapa kami menerapkan standar <em>Quality Control</em> bertingkat sebelum produk sampai ke tangan Anda di Wonogiri maupun seluruh Indonesia.
+                        Warna dasar kami, <em>Deep Teal</em>, merepresentasikan stabilitas korporat, dipadukan dengan aksen <em>Platinum Silver</em> yang melambangkan presisi mesin modern di fasilitas kami di Wonogiri.
                     </p>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-6 mt-10">
-                    <div class="flex items-center gap-4 bg-ng-light p-4 rounded-xl border border-ng-primary/10">
-                        <div class="bg-ng-primary p-3 rounded-full text-ng-accent"><i class="fas fa-map-marker-alt text-xl"></i></div>
-                        <div>
-                            <h4 class="font-bold text-ng-primary">Workshop Wonogiri</h4>
-                            <p class="text-sm text-gray-600">Mundu RT01/RW04, Purworejo</p>
-                        </div>
+                <div class="grid grid-cols-2 gap-6 mt-10 font-mono text-sm">
+                    <div class="bg-corp-slate p-4 border-l-2 border-corp-teal">
+                        <h4 class="font-bold text-corp-teal uppercase mb-1">Lokasi Fasilitas</h4>
+                        <p class="text-gray-600">Mundu RT01/RW04, Purworejo, Wonogiri</p>
                     </div>
-                    <div class="flex items-center gap-4 bg-ng-light p-4 rounded-xl border border-ng-primary/10">
-                        <div class="bg-ng-primary p-3 rounded-full text-ng-accent"><i class="fas fa-shipping-fast text-xl"></i></div>
-                        <div>
-                            <h4 class="font-bold text-ng-primary">Kiriman Nasional</h4>
-                            <p class="text-sm text-gray-600">Terpercaya ke seluruh NKRI</p>
-                        </div>
+                    <div class="bg-corp-slate p-4 border-l-2 border-corp-teal">
+                        <h4 class="font-bold text-corp-teal uppercase mb-1">Kapasitas</h4>
+                        <p class="text-gray-600">Skala Besar & Pesanan Korporat</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="teknologi" class="py-24 bg-ng-primary text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-
+    <section id="teknologi" class="py-24 bg-corp-dark text-white relative overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-20">
-                <span class="text-ng-accent font-bold uppercase tracking-widest mb-2 block">Our Core Strength</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-black mb-6 title-underline-center">Standar Teknologi & Kualitas</h2>
-                <p class="mt-4 text-gray-300 max-w-2xl mx-auto text-lg">Kami membuka dapur produksi kami. Inilah bukti komitmen kami terhadap detail yang presisi menggunakan mesin industri terkini.</p>
+            <div class="mb-20 border-b border-white/10 pb-8 flex flex-col md:flex-row justify-between items-end">
+                <div>
+                    <span class="font-mono text-corp-silver text-xs uppercase tracking-widest mb-2 block">// Technical Specifications</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-black uppercase leading-none">Standar Manufaktur</h2>
+                </div>
+                <p class="mt-4 md:mt-0 text-gray-400 max-w-md text-sm font-mono text-right">
+                    Transparansi proses produksi menggunakan infrastruktur mesin industri terkini.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-24 border-b border-white/5 pb-24">
                 <div class="order-2 lg:order-1">
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="text-5xl font-black text-ng-accent/30">01.</span>
-                        <h3 class="font-heading text-3xl font-bold text-white">Bordir Komputer Presisi Tinggi</h3>
-                    </div>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        Kami menggunakan mesin bordir komputer multi-kepala (12-20 head) standar garmen. Bukan bordir manual. Teknologi ini menjamin:
+                    <h3 class="font-heading text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-microchip text-corp-silver"></i>
+                        DIGITAL EMBROIDERY SYSTEM
+                    </h3>
+                    <p class="text-gray-300 mb-6 font-light leading-relaxed">
+                        Penggunaan mesin bordir komputer multi-head industrial untuk menjamin konsistensi pada ribuan unit produksi.
                     </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-ng-accent mt-1"></i>
-                            <span><strong>Akurasi Desain 99%:</strong> Logo rumit sekalipun akan ter-render sempurna.</span>
+                    <ul class="space-y-4 font-mono text-sm text-gray-400">
+                        <li class="flex items-center gap-3 bg-white/5 p-3 rounded-sm">
+                            <span class="text-corp-silver">>></span> Akurasi Desain Digital 99.8%
                         </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-ng-accent mt-1"></i>
-                            <span><strong>Kerapatan Benang Tinggi:</strong> Hasil bordir tebal, rapat, dan tidak mudah terurai.</span>
+                        <li class="flex items-center gap-3 bg-white/5 p-3 rounded-sm">
+                            <span class="text-corp-silver">>></span> High-Speed Production (1000 rpm)
                         </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-ng-accent mt-1"></i>
-                            <span><strong>Benang Rayon Premium:</strong> Warna mengkilap dan tahan lama (tidak pudar).</span>
+                        <li class="flex items-center gap-3 bg-white/5 p-3 rounded-sm">
+                            <span class="text-corp-silver">>></span> Benang Rayon Industrial Grade (Tahan Pudar)
                         </li>
                     </ul>
                 </div>
-                <div class="order-1 lg:order-2 relative h-[400px] rounded-3xl overflow-hidden shadow-2xl group">
-                    <div class="absolute inset-0 bg-ng-primary/40 group-hover:bg-transparent transition duration-500 z-10"></div>
+                <div class="order-1 lg:order-2 relative h-[350px] rounded-sm overflow-hidden shadow-xl">
                     <img src="https://images.unsplash.com/photo-1626263868061-487007b18504?q=80&w=2070&auto=format&fit=crop" 
-                         class="w-full h-full object-cover scale-100 group-hover:scale-110 transition duration-700" alt="Mesin Bordir Komputer Industrial National Graphic">
+                         class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Mesin Bordir Industrial">
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-                 <div class="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl group">
-                    <div class="absolute inset-0 bg-ng-primary/40 group-hover:bg-transparent transition duration-500 z-10"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                 <div class="relative h-[350px] rounded-sm overflow-hidden shadow-xl">
                     <img src="https://images.unsplash.com/photo-1605644130969-4386fb6073af?q=80&w=2071&auto=format&fit=crop" 
-                         class="w-full h-full object-cover scale-100 group-hover:scale-110 transition duration-700" alt="Proses Jahit Industri Garmen">
+                         class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Industrial Sewing Process">
                 </div>
                 <div>
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="text-5xl font-black text-ng-accent/30">02.</span>
-                        <h3 class="font-heading text-3xl font-bold text-white">Konstruksi Jahitan Standar Ekspor</h3>
-                    </div>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        Kekuatan seragam ada pada jahitannya. Kami menerapkan standarisasi pola jahit yang ketat menggunakan mesin High-Speed Juki/Brother:
+                    <h3 class="font-heading text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-shield-alt text-corp-silver"></i>
+                        HEAVY-DUTY STITCHING
+                    </h3>
+                     <p class="text-gray-300 mb-6 font-light leading-relaxed">
+                        Standarisasi konstruksi jahit garmen untuk ketahanan maksimal di lapangan (PDL/Wearpack).
                     </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="bg-ng-accent/20 p-2 rounded"><i class="fas fa-link text-ng-accent"></i></div>
-                            <span><strong>Jahitan Rantai (Chainstitch):</strong> Diterapkan di bahu dan leher belakang kaos untuk ketahanan ekstra.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                             <div class="bg-ng-accent/20 p-2 rounded"><i class="fas fa-wave-square text-ng-accent"></i></div>
-                            <span><strong>Overdeck 3 Jarum:</strong> Finishing ujung lengan dan bawah baju yang rapi dan elastis.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                             <div class="bg-ng-accent/20 p-2 rounded"><i class="fas fa-shield-alt text-ng-accent"></i></div>
-                            <span><strong>Bartack (Jahit Pengunci):</strong> Penguat di titik rawan sobek seperti saku dan ujung belahan samping PDL.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="text-5xl font-black text-ng-accent/30">03.</span>
-                        <h3 class="font-heading text-3xl font-bold text-white">Teknik Sablon Manual & Digital</h3>
-                    </div>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
-                        Kami menyesuaikan teknik sablon dengan kebutuhan desain dan anggaran Anda, tanpa mengorbankan kualitas.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-ng-dark-teal p-5 rounded-xl border border-ng-accent/20 hover:border-ng-accent transition">
-                            <h4 class="font-bold text-ng-accent mb-2 flex items-center gap-2"><i class="fas fa-fill-drip"></i> PLASTISOL (Oil Based)</h4>
-                            <p class="text-sm text-gray-400">Standar distro. Tinta tebal, warna sangat cerah, dan awet puluhan kali cuci.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+                        <div class="border border-white/10 p-4 hover:bg-white/5 transition">
+                            <strong class="text-corp-silver block mb-1">[CHAINSTITCH]</strong> Jahitan rantai pada bahu & belakang leher.
                         </div>
-                        <div class="bg-ng-dark-teal p-5 rounded-xl border border-ng-accent/20 hover:border-ng-accent transition">
-                            <h4 class="font-bold text-ng-accent mb-2 flex items-center gap-2"><i class="fas fa-water"></i> DISCHARGE (Cabut Warna)</h4>
-                            <p class="text-sm text-gray-400">Tinta meresap ke kain. Hasil sangat lembut, adem, dan rata dengan bahan.</p>
+                        <div class="border border-white/10 p-4 hover:bg-white/5 transition">
+                            <strong class="text-corp-silver block mb-1">[3-NEEDLE OVERDECK]</strong> Finishing kelim lengan elastis & kuat.
                         </div>
-                        <div class="bg-ng-dark-teal p-5 rounded-xl border border-ng-accent/20 hover:border-ng-accent transition">
-                             <h4 class="font-bold text-ng-accent mb-2 flex items-center gap-2"><i class="fas fa-print"></i> DTF (Digital Transfer)</h4>
-                            <p class="text-sm text-gray-400">Solusi untuk desain full color, gradasi foto, atau pemesanan jumlah sedikit.</p>
+                        <div class="border border-white/10 p-4 hover:bg-white/5 transition">
+                            <strong class="text-corp-silver block mb-1">[BARTACK REINFORCE]</strong> Pengunci titik tegangan tinggi (saku/resleting).
                         </div>
-                         <div class="bg-ng-dark-teal p-5 rounded-xl border border-ng-accent/20 hover:border-ng-accent transition">
-                             <h4 class="font-bold text-ng-accent mb-2 flex items-center gap-2"><i class="fas fa-layer-group"></i> HIGH DENSITY (Timbul)</h4>
-                            <p class="text-sm text-gray-400">Efek sablon 3D yang tebal dan presisi, memberikan kesan sangat eksklusif.</p>
+                        <div class="border border-white/10 p-4 hover:bg-white/5 transition">
+                             <strong class="text-corp-silver block mb-1">[DOUBLE NEEDLE]</strong> Top stitching untuk kerapian visual.
                         </div>
                     </div>
-                </div>
-                <div class="order-1 lg:order-2 relative h-[400px] rounded-3xl overflow-hidden shadow-2xl group">
-                    <div class="absolute inset-0 bg-ng-primary/40 group-hover:bg-transparent transition duration-500 z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1589935330925-e51c835b5933?q=80&w=2070&auto=format&fit=crop" 
-                         class="w-full h-full object-cover scale-100 group-hover:scale-110 transition duration-700" alt="Hasil Sablon Presisi">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 bg-ng-light">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-end justify-between mb-12">
-                <div>
-                    <span class="text-ng-primary font-bold uppercase tracking-widest">Our Track Record</span>
-                    <h2 class="font-heading text-4xl font-black text-ng-primary title-underline ml-0 mt-2">Featured Projects</h2>
-                </div>
-                <a href="https://instagram.com/nationalgraphic.id" class="group flex items-center gap-2 text-ng-primary font-bold hover:text-ng-accent transition mt-4 md:mt-0">
-                    Lihat Portfolio Lengkap di Instagram 
-                    <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i>
-                </a>
+    <section id="portfolio" class="py-24 bg-corp-slate">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl font-bold text-corp-teal industrial-underline-center uppercase">Output Produksi</h2>
+                <p class="text-gray-600">Contoh hasil produksi dari lini manufaktur kami.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="group relative rounded-2xl overflow-hidden shadow-xl h-[400px]">
-                    <div class="absolute inset-0 bg-ng-primary/30 group-hover:bg-transparent transition duration-500 z-10"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div class="group relative overflow-hidden h-[350px] bg-corp-dark">
                     <img src="https://images.unsplash.com/photo-1617137968427-85924c809a29?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Jaket Bomber">
+                         class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Jaket Bomber">
                     
-                    <div class="absolute top-4 left-4 z-20">
-                         <span class="bg-ng-accent text-ng-primary text-xs font-bold px-3 py-1 rounded-full">Corporate Order</span>
-                    </div>
-                    
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-ng-primary via-ng-primary/80 to-transparent p-8 z-20 translate-y-2 group-hover:translate-y-0 transition duration-500">
-                        <h3 class="text-white text-2xl font-bold mb-1">Jaket Bomber Executive</h3>
-                        <p class="text-ng-accent font-medium"><i class="fas fa-map-marker-alt mr-2"></i>Pertamina Hulu Energi</p>
-                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 text-sm text-gray-300">
-                            Bahan Taslan Waterproof + Bordir Komputer di 4 titik.
-                        </div>
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-corp-dark to-transparent p-6">
+                        <span class="font-mono text-xs text-corp-silver mb-1 block">// CORPORATE ORDER</span>
+                        <h3 class="text-white text-xl font-bold uppercase">Jaket Bomber PHE</h3>
                     </div>
                 </div>
 
-                 <div class="group relative rounded-2xl overflow-hidden shadow-xl h-[400px] md:-mt-8 border-t-4 border-ng-accent">
-                    <div class="absolute inset-0 bg-ng-primary/30 group-hover:bg-transparent transition duration-500 z-10"></div>
+                 <div class="group relative overflow-hidden h-[350px] bg-corp-dark">
                     <img src="https://images.unsplash.com/photo-1603252109303-2751440ee43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Kemeja PDL">
-                    
-                    <div class="absolute top-4 left-4 z-20">
-                         <span class="bg-ng-accent text-ng-primary text-xs font-bold px-3 py-1 rounded-full">Best Seller Item</span>
-                    </div>
-                    
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-ng-primary via-ng-primary/80 to-transparent p-8 z-20 translate-y-2 group-hover:translate-y-0 transition duration-500">
-                        <h3 class="text-white text-2xl font-bold mb-1">Kemeja PDL Lapangan</h3>
-                        <p class="text-ng-accent font-medium"><i class="fas fa-university mr-2"></i>Teknik Sipil UNDIP</p>
-                         <div class="mt-4 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 text-sm text-gray-300">
-                            Bahan Japan Drill Grade A + Ventilasi udara punggung.
-                        </div>
+                         class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Kemeja PDL">
+                     <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-corp-dark to-transparent p-6">
+                         <span class="font-mono text-xs text-corp-silver mb-1 block">// FIELD UNIFORM</span>
+                        <h3 class="text-white text-xl font-bold uppercase">PDL Teknik Sipil</h3>
                     </div>
                 </div>
 
-                 <div class="group relative rounded-2xl overflow-hidden shadow-xl h-[400px]">
-                     <div class="absolute inset-0 bg-ng-primary/30 group-hover:bg-transparent transition duration-500 z-10"></div>
+                 <div class="group relative overflow-hidden h-[350px] bg-corp-dark">
                     <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Jersey Esport">
-                    
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-ng-primary via-ng-primary/80 to-transparent p-8 z-20 translate-y-2 group-hover:translate-y-0 transition duration-500">
-                        <h3 class="text-white text-2xl font-bold mb-1">Jersey Full Printing</h3>
-                        <p class="text-ng-accent font-medium"><i class="fas fa-gamepad mr-2"></i>EVOS Esports Community</p>
-                         <div class="mt-4 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 text-sm text-gray-300">
-                            Bahan Dryfit Milano Premium + Sublimasi Epson Original.
-                        </div>
+                         class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-700 group-hover:scale-105" alt="Jersey Esport">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-corp-dark to-transparent p-6">
+                        <span class="font-mono text-xs text-corp-silver mb-1 block">// SUBLIMATION PRINT</span>
+                        <h3 class="text-white text-xl font-bold uppercase">Jersey EVOS Pro</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="katalog" class="py-24 bg-white relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-ng-primary/5 -z-0 skew-y-3"></div>
+    <section id="katalog" class="py-24 bg-white">
         
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
-            <h2 class="font-heading text-4xl md:text-5xl font-black text-ng-primary mb-8 title-underline-center leading-tight">
-                Siap Mewujudkan<br>Seragam Impian Anda?
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-corp-teal mb-8 uppercase leading-tight">
+                Mulai Proses Produksi Anda
             </h2>
-            <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Jangan ragu konsultasikan desain dan anggaran Anda. Tim profesional kami siap memberikan rekomendasi bahan dan teknik produksi terbaik.
+            <p class="text-xl text-gray-600 mb-12 leading-relaxed font-light">
+                Konsultasikan kebutuhan garmen skala industri Anda langsung dengan tim teknis kami di Wonogiri.
             </p>
 
-            <div class="bg-ng-primary rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10 border-t-4 border-ng-accent">
-                 <div class="absolute -top-20 -left-20 w-64 h-64 bg-ng-accent/10 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-ng-accent/10 rounded-full blur-3xl"></div>
+            <div class="bg-corp-teal rounded-sm p-10 md:p-12 shadow-2xl relative overflow-hidden text-center border-t-4 border-corp-silver">
+                <div class="text-white relative z-10">
+                    <i class="fab fa-whatsapp text-5xl text-corp-silver mb-6"></i>
+                    <h3 class="font-bold text-3xl mb-2 font-mono">0815-7567-2565</h3>
+                    <p class="text-corp-silver mb-8 font-mono text-sm">Direct Line to Production Team</p>
 
-                <div class="text-white text-left relative z-10">
-                    <h3 class="font-bold text-3xl mb-2">Konsultasi Gratis 24/7</h3>
-                    <p class="text-ng-accent/90 mb-6">Dapatkan penawaran harga spesial hari ini.</p>
-                    
-                    <div class="flex flex-col gap-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-ng-accent/20 rounded-full flex items-center justify-center">
-                                <i class="fab fa-whatsapp text-ng-accent"></i>
-                            </div>
-                            <span class="font-bold text-xl tracking-wide">0815-7567-2565</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                             <div class="w-10 h-10 bg-ng-accent/20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-map-marker-alt text-ng-accent"></i>
-                            </div>
-                            <span>Mundu RT01/RW04, Purworejo, Wonogiri</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative z-10 flex flex-col gap-4 w-full md:w-auto">
-                     <a href="https://wa.me/6281575672565?text=Halo%20NationalGraphic,%20saya%20mau%20konsultasi%20pembuatan%20seragam." class="bg-ng-accent text-ng-primary px-10 py-5 rounded-full font-black text-lg shadow-lg hover:bg-white hover:scale-105 transition duration-300 text-center animate-pulse">
-                        HUBUNGI VIA WHATSAPP <i class="fas fa-paper-plane ml-2"></i>
+                    <a href="https://wa.me/6281575672565?text=Halo%20NationalGraphic,%20saya%20mau%20konsultasi%20produksi%20garmen." class="inline-block bg-corp-silver text-corp-teal px-10 py-4 rounded-sm font-bold text-lg hover:bg-white transition duration-300 uppercase tracking-wider">
+                        Hubungi Sekarang
                     </a>
-                    <p class="text-white/70 text-sm text-center">Respons cepat dalam hitungan menit.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-ng-primary text-white pt-20 pb-10">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-ng-accent/30 pb-12">
-            <div class="md:col-span-2">
-                 <a href="#" class="flex items-center gap-2 mb-6">
-                    <div class="border-2 border-ng-accent p-1 rounded-sm">
-                        <div class="w-6 h-6 bg-ng-accent rounded-sm"></div>
-                    </div>
-                    <span class="font-heading font-extrabold text-2xl tracking-tight">
-                        NATIONAL<span class="text-ng-accent">GRAPHIC</span>.ID
-                    </span>
-                </a>
-                <p class="text-gray-300 leading-relaxed mb-6 pr-10">
-                    Partner manufaktur garmen profesional berbasis di Wonogiri. Kami berdedikasi menghadirkan identitas visual berkualitas tinggi untuk perusahaan, instansi, dan komunitas di seluruh Indonesia melalui standar produksi yang presisi.
-                </p>
-                <div class="flex gap-4">
-                    <a href="https://instagram.com/nationalgraphic.id" target="_blank" class="w-10 h-10 border border-ng-accent text-ng-accent rounded-full flex items-center justify-center hover:bg-ng-accent hover:text-ng-primary transition">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/6281575672565" target="_blank" class="w-10 h-10 border border-ng-accent text-ng-accent rounded-full flex items-center justify-center hover:bg-ng-accent hover:text-ng-primary transition">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                     <a href="mailto:contact@nationalgraphic.id" class="w-10 h-10 border border-ng-accent text-ng-accent rounded-full flex items-center justify-center hover:bg-ng-accent hover:text-ng-primary transition">
-                        <i class="far fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            
+    <footer class="bg-corp-dark text-gray-400 pt-16 pb-8 font-mono text-sm">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/10 pb-12 mb-8">
             <div>
-                <h4 class="font-bold text-lg mb-6 text-ng-accent">Layanan Kami</h4>
-                <ul class="space-y-3 text-gray-300">
-                    <li><a href="#katalog" class="hover:text-ng-accent transition">Konveksi Kaos Premium</a></li>
-                    <li><a href="#katalog" class="hover:text-ng-accent transition">Produksi PDH/PDL Kantor</a></li>
-                    <li><a href="#katalog" class="hover:text-ng-accent transition">Jaket Bomber & Parka</a></li>
-                    <li><a href="#teknologi" class="hover:text-ng-accent transition">Jasa Bordir Komputer</a></li>
-                    <li><a href="#teknologi" class="hover:text-ng-accent transition">Sablon Plastisol/DTF</a></li>
-                </ul>
+                 <a href="#" class="flex flex-col leading-none mb-4 text-white">
+                    <span class="font-heading font-black text-lg tracking-tightest uppercase">National</span>
+                    <span class="font-heading font-bold text-lg tracking-widest text-corp-silver">Graphic.ID</span>
+                </a>
+                <p class="leading-relaxed mb-6">
+                    Industrial Garment Manufacturer. Berbasis di Wonogiri, melayani produksi skala nasional dengan standar kualitas pabrik.
+                </p>
             </div>
             
              <div>
-                <h4 class="font-bold text-lg mb-6 text-ng-accent">Workshop Office</h4>
-                <ul class="space-y-4 text-gray-300">
+                <h4 class="font-bold text-white uppercase mb-4 tracking-wider">Workshop Address</h4>
+                <ul class="space-y-2">
                     <li class="flex items-start gap-3">
-                        <i class="fas fa-map-marker-alt text-ng-accent mt-1"></i>
-                        <span>Mundu RT01 / RW04,<br>Kel. Purworejo, Kec. Wonogiri,<br>Jawa Tengah 57612.</span>
+                        <i class="fas fa-map-marker-alt text-corp-silver mt-1"></i>
+                        <span>Mundu RT01 / RW04,<br>Purworejo, Wonogiri,<br>Jawa Tengah 57612.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase mb-4 tracking-wider">Contact Info</h4>
+                 <ul class="space-y-2">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone text-corp-silver"></i>
+                        <span class="text-white">0815-7567-2565</span>
                     </li>
                     <li class="flex items-center gap-3">
-                        <i class="fas fa-phone-alt text-ng-accent"></i>
-                        <span class="font-bold text-white">0815-7567-2565</span>
+                        <i class="fas fa-envelope text-corp-silver"></i>
+                        <span>production@nationalgraphic.id</span>
                     </li>
-                    <li class="flex items-center gap-3">
-                         <i class="far fa-clock text-ng-accent"></i>
-                        <span>Senin - Sabtu: 08.00 - 17.00 WIB</span>
+                    <li class="flex items-center gap-3 mt-4">
+                        <a href="https://instagram.com/nationalgraphic.id" class="text-corp-silver hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <div class="text-center pt-10 text-sm text-gray-400 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-6">
-            <p>&copy; 2026 National Graphic ID. All Rights Reserved.</p>
-            <p class="mt-2 md:mt-0">
-                Crafted with precision and passion in Wonogiri.
-            </p>
+        <div class="text-center max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-xs uppercase tracking-widest">
+            <p>&copy; 2026 National Graphic ID.</p>
+            <p>Industrial Precision. Wonogiri, Indonesia.</p>
         </div>
     </footer>
-
-    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
-        <a href="https://instagram.com/nationalgraphic.id" target="_blank" 
-           class="bg-gradient-to-tr from-purple-600 to-pink-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition duration-300 border-2 border-white tooltip-left" data-tooltip="Instagram Kami">
-            <i class="fab fa-instagram text-2xl"></i>
-        </a>
-        <a href="https://wa.me/6281575672565?text=Halo,%20saya%20tertarik%20dengan%20layanan%20National%20Graphic." target="_blank" 
-           class="bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition duration-300 border-2 border-white animate-bounce-slow" data-tooltip="Hubungi WhatsApp">
-            <i class="fab fa-whatsapp text-3xl"></i>
-        </a>
-    </div>
 
 </body>
 </html>
