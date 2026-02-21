@@ -18,11 +18,10 @@
             theme: {
                 extend: {
                     colors: {
-                        /* PALET WARNA INDUSTRIAL (NO YELLOW) */
-                        'ng-primary': '#003333',    /* Deep Teal */
-                        'ng-silver': '#C0C0C0',     /* Platinum Silver */
-                        'ng-dark': '#0B1215',       /* Hitam Hampir Pekat */
-                        'ng-light': '#F5F7FA',      /* Putih Kebiruan */
+                        'ng-primary': '#003333',    
+                        'ng-silver': '#C0C0C0',     
+                        'ng-dark': '#0B1215',       
+                        'ng-light': '#F5F7FA',      
                     },
                     fontFamily: {
                         'heading': ['Montserrat', 'sans-serif'],
@@ -37,33 +36,12 @@
     </script>
     
     <style>
-        /* Custom Swiper Styles untuk menyesuaikan dengan Brand */
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Warna Panah Navigasi Silver */
-        .swiper-button-next, .swiper-button-prev {
-            color: #C0C0C0 !important; 
-            transform: scale(0.7); /* Memperkecil panah */
-        }
-        
-        /* Warna Titik Pagination */
-        .swiper-pagination-bullet {
-            background: #C0C0C0 !important;
-            opacity: 0.5;
-        }
-        .swiper-pagination-bullet-active {
-            opacity: 1;
-            background: #ffffff !important;
-        }
-
-        /* Hover Effect untuk Card */
+        .swiper { width: 100%; height: 100%; }
+        .swiper-button-next, .swiper-button-prev { color: #C0C0C0 !important; transform: scale(0.7); }
+        .swiper-pagination-bullet { background: #C0C0C0 !important; opacity: 0.5; }
+        .swiper-pagination-bullet-active { opacity: 1; background: #ffffff !important; }
         .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(0, 51, 51, 0.2); }
-        
-        /* Garis Pemisah Silver */
         .divider-silver { height: 2px; width: 60px; background-color: #C0C0C0; margin: 1.5rem 0; }
     </style>
 </head>
@@ -88,18 +66,11 @@
     </nav>
 
     <header id="home" class="relative h-[90vh] bg-ng-dark overflow-hidden">
-        
         <div class="swiper heroSwiper absolute inset-0 w-full h-full">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="https://images.unsplash.com/photo-1617137968427-85924c809a29?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Slide 1">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://images.unsplash.com/photo-1605644130969-4386fb6073af?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover" alt="Slide 2">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://images.unsplash.com/photo-1558507652-2d9626c4e67a?q=80&w=1950&auto=format&fit=crop" class="w-full h-full object-cover" alt="Slide 3">
-                </div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1617137968427-85924c809a29?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Slide 1"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1605644130969-4386fb6073af?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Slide 2"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1558507652-2d9626c4e67a?q=80&w=1950&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Slide 3"></div>
             </div>
             <div class="absolute inset-0 bg-gradient-to-r from-ng-primary via-ng-primary/80 to-transparent z-10 pointer-events-none"></div>
         </div>
@@ -125,10 +96,8 @@
 
     <section id="story" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            
             <div class="relative h-[500px] w-full">
                 <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-ng-primary z-0"></div>
-                
                 <div class="swiper storySwiper w-full h-full shadow-2xl relative z-10">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500"></div>
@@ -137,7 +106,6 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-
                 <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-ng-primary z-0"></div>
             </div>
             
@@ -147,10 +115,10 @@
                 <div class="divider-silver"></div>
                 <p class="text-lg text-gray-800 font-medium italic mb-6 leading-relaxed">"Kami akan menjadi partner kalian membangun cerita yang takkan terlupakan."</p>
                 <p class="text-gray-600 mb-6 leading-relaxed font-light">
-                    Di <strong>National Graphic ID</strong>, selembar kain bukan hanya bahan baku. Ia adalah kanvas tempat Anda melukis kenangan. Entah itu jaket angkatan, atau seragam kerja yang profesional.
+                    Di <strong>National Graphic ID</strong>, selembar kain bukan hanya bahan baku. Ia adalah kanvas tempat Anda melukis kenangan. Entah itu jaket angkatan yang penuh memori, atau seragam kerja yang tangguh.
                 </p>
                 <div class="flex items-center gap-4">
-                    <div class="h-12 w-12 bg-ng-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-handshake"></i></div>
+                    <div class="h-12 w-12 bg-ng-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-cogs"></i></div>
                     <div>
                         <h4 class="font-bold text-ng-primary">Industrial Precision</h4>
                         <p class="text-sm text-gray-500">Presisi mesin industri dari Wonogiri.</p>
@@ -170,7 +138,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="bg-white group hover-lift border-t-4 border-ng-primary shadow-lg">
+                <div class="bg-white group hover-lift border-t-4 border-ng-silver shadow-2xl relative z-10 md:-mt-4">
+                    <div class="absolute top-0 right-0 bg-ng-silver text-ng-primary text-xs font-bold px-4 py-2 uppercase z-20 shadow-md">Best Seller</div>
+                    
                     <div class="h-72 overflow-hidden relative">
                         <div class="swiper productSwiper">
                             <div class="swiper-wrapper">
@@ -182,15 +152,25 @@
                             <div class="swiper-button-prev"></div>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">T-Shirt & Apparel</h3>
-                        <p class="text-gray-500 text-sm mb-6">Cotton Combed 24s/30s Premium. Sablon Plastisol Ink & Discharge detail.</p>
-                        <a href="https://wa.me/6281575672565" class="text-ng-primary font-bold text-sm uppercase tracking-wider border-b border-ng-primary pb-1 hover:text-ng-silver transition">Order Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    <div class="p-8 bg-ng-primary text-white">
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">T-Shirt & Apparel</h3>
+                        <p class="text-gray-300 text-sm mb-4">Solusi tepat untuk merchandise event, seragam kasual, dan kebutuhan distro komunitas Anda.</p>
+                        
+                        <div class="mb-6 bg-white/10 p-4 rounded-sm text-xs font-mono">
+                            <strong class="text-ng-silver block mb-2 border-b border-white/20 pb-1">Spesifikasi Material:</strong>
+                            <ul class="list-disc pl-4 space-y-1 text-gray-300">
+                                <li>Kain: Cotton Combed 24s / 30s</li>
+                                <li>Sablon: Plastisol High-Density</li>
+                                <li>Sablon: Discharge (Cabut Warna)</li>
+                                <li>Finishing: Jahit Rantai Standar Ekspor</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/6281575672565?text=Halo,%20saya%20tertarik%20pembuatan%20Kaos" class="text-white font-bold text-sm uppercase tracking-wider border-b border-white pb-1 hover:text-ng-silver transition">Order Now <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
 
-                <div class="bg-white group hover-lift border-t-4 border-ng-silver shadow-2xl relative md:-mt-4 z-10">
-                    <div class="absolute top-0 right-0 bg-ng-silver text-ng-primary text-xs font-bold px-3 py-1 uppercase z-20">Best Seller</div>
+                <div class="bg-white group hover-lift border-t-4 border-ng-primary shadow-lg">
                     <div class="h-72 overflow-hidden relative">
                          <div class="swiper productSwiper">
                             <div class="swiper-wrapper">
@@ -202,10 +182,21 @@
                             <div class="swiper-button-prev"></div>
                         </div>
                     </div>
-                    <div class="p-8 bg-ng-primary text-white">
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Workwear (PDL/PDH)</h3>
-                        <p class="text-gray-300 text-sm mb-6">Kemeja lapangan standar korporat. Drill Grade A, Bordir Presisi.</p>
-                        <a href="https://wa.me/6281575672565" class="text-white font-bold text-sm uppercase tracking-wider border-b border-white pb-1 hover:text-ng-silver transition">Order Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    <div class="p-8">
+                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Workwear (PDL/PDH)</h3>
+                        <p class="text-gray-500 text-sm mb-4">Seragam tangguh untuk aktivitas lapangan, kantor, organisasi, maupun himpunan mahasiswa.</p>
+                        
+                        <div class="mb-6 bg-ng-light p-4 rounded-sm text-xs font-mono">
+                            <strong class="text-ng-primary block mb-2 border-b border-gray-300 pb-1">Spesifikasi Material:</strong>
+                            <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                                <li>Nagata Drill & American Drill</li>
+                                <li>Prisma WP & Combat Twill WP</li>
+                                <li>Bordir: Komputer 12 Kepala (Presisi)</li>
+                                <li>Finishing: Bartack Pengunci Jahitan</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/6281575672565?text=Halo,%20saya%20tertarik%20pembuatan%20PDL" class="text-ng-primary font-bold text-sm uppercase tracking-wider border-b border-ng-primary pb-1 hover:text-ng-silver transition">Order Now <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
 
@@ -223,8 +214,19 @@
                     </div>
                     <div class="p-8">
                         <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Jacket & Outerwear</h3>
-                        <p class="text-gray-500 text-sm mb-6">Bomber, Parka, Hoodie. Material Taslan Waterproof / Fleece Cotton.</p>
-                        <a href="https://wa.me/6281575672565" class="text-ng-primary font-bold text-sm uppercase tracking-wider border-b border-ng-primary pb-1 hover:text-ng-silver transition">Order Now <i class="fas fa-arrow-right ml-2"></i></a>
+                        <p class="text-gray-500 text-sm mb-4">Dari Jaket Bomber korporat, Parka tangguh, hingga Hoodie kasual dengan proteksi maksimal.</p>
+                        
+                        <div class="mb-6 bg-ng-light p-4 rounded-sm text-xs font-mono">
+                            <strong class="text-ng-primary block mb-2 border-b border-gray-300 pb-1">Spesifikasi Material:</strong>
+                            <ul class="list-disc pl-4 space-y-1 text-gray-600">
+                                <li>Parasut: Taslan Milky & Taslan Salur</li>
+                                <li>Katun: Fleece Premium & Baby Canvas</li>
+                                <li>Inner: Puring Jaring / Quilting / Asahi</li>
+                                <li>Aksesoris: Resleting YKK Original</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/6281575672565?text=Halo,%20saya%20tertarik%20pembuatan%20Jaket" class="text-ng-primary font-bold text-sm uppercase tracking-wider border-b border-ng-primary pb-1 hover:text-ng-silver transition">Order Now <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -261,8 +263,8 @@
                 <div class="swiper processSwiper w-full h-[350px] rounded-sm shadow-xl border-2 border-ng-silver">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1626263868061-487007b18504?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover"></div>
-                         <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1605644130969-4386fb6073af?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover"></div>
-                         <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1574634534894-89d7576c8259?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1605644130969-4386fb6073af?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1574634534894-89d7576c8259?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"></div>
                     </div>
                      <div class="swiper-pagination"></div>
                 </div>
@@ -305,58 +307,33 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        // 1. Hero Background Slider (Fade effect, Auto play)
         var heroSwiper = new Swiper(".heroSwiper", {
             spaceBetween: 0,
             effect: "fade",
             loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
+            autoplay: { delay: 5000, disableOnInteraction: false },
         });
 
-        // 2. Product Card Slider (Manual swipe, Navigation arrows)
         var productSwiper = new Swiper(".productSwiper", {
             spaceBetween: 10,
             loop: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
         });
 
-        // 3. Story Slider (Auto play)
         var storySwiper = new Swiper(".storySwiper", {
             spaceBetween: 30,
             centeredSlides: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+            autoplay: { delay: 2500, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
         });
 
-         // 4. Process Slider
          var processSwiper = new Swiper(".processSwiper", {
             spaceBetween: 30,
             effect: "cube",
             grabCursor: true,
-            cubeEffect: {
-                shadow: true,
-                slideShadows: true,
-                shadowOffset: 20,
-                shadowScale: 0.94,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            autoplay: {
-                delay: 3000,
-            }
+            cubeEffect: { shadow: true, slideShadows: true, shadowOffset: 20, shadowScale: 0.94 },
+            pagination: { el: ".swiper-pagination" },
+            autoplay: { delay: 3000 }
         });
     </script>
 </body>
