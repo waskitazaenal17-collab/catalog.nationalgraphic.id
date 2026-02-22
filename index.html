@@ -18,11 +18,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'ng-primary': '#003333',    /* Deep Teal */
-                        'ng-silver': '#C0C0C0',     /* Platinum Silver */
-                        'ng-dark': '#0B1215',       /* Black/Dark */
-                        'ng-light': '#F8FAFC',      /* Slate Light */
-                        'ng-gray': '#E2E8F0',       /* Border Gray */
+                        'ng-primary': '#003333',
+                        'ng-silver': '#C0C0C0',
+                        'ng-dark': '#0B1215',
+                        'ng-light': '#F8FAFC',
+                        'ng-gray': '#E2E8F0',
                     },
                     fontFamily: {
                         'heading': ['Montserrat', 'sans-serif'],
@@ -31,11 +31,16 @@
                     },
                     animation: {
                         'marquee': 'marquee 25s linear infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
                     },
                     keyframes: {
                         marquee: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-100%)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -52,10 +57,16 @@
         .hover-lift { transition: transform 0.4s ease, box-shadow 0.4s ease; }
         .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(0, 51, 51, 0.2); }
         
-        .divider-silver { height: 2px; width: 60px; background-color: #C0C0C0; margin: 1.5rem 0; }
         .divider-silver-center { height: 2px; width: 60px; background-color: #C0C0C0; margin: 1.5rem auto; }
 
-        /* Accordion custom style untuk FAQ */
+        /* Filter Portfolio Utilities */
+        .hide { display: none !important; }
+        .show { display: block; animation: fadeIn 0.5s; }
+        
+        /* Tab Utilities */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s; }
+        
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
     </style>
@@ -70,386 +81,326 @@
             </a>
             
             <ul class="hidden lg:flex space-x-6 font-medium text-xs uppercase tracking-widest items-center">
-                <li><a href="#home" class="hover:text-ng-silver transition">Home</a></li>
-                <li><a href="#story" class="hover:text-ng-silver transition">Story</a></li>
-                <li><a href="#products" class="hover:text-ng-silver transition">Products</a></li>
-                <li><a href="#materials" class="hover:text-ng-silver transition">Materials</a></li>
-                <li><a href="#order-flow" class="hover:text-ng-silver transition">How to Order</a></li>
-                <li><a href="#faq" class="hover:text-ng-silver transition">FAQ</a></li>
-                <li><a href="https://wa.me/6281575672565" class="bg-white text-ng-primary px-5 py-2 rounded-sm font-bold hover:bg-ng-silver transition shadow-md">Contact</a></li>
+                <li><a href="#gallery" class="hover:text-ng-silver transition">Portfolio</a></li>
+                <li><a href="#materials" class="hover:text-ng-silver transition">Bahan</a></li>
+                <li><a href="#sizechart" class="hover:text-ng-silver transition">Size Chart</a></li>
+                <li><a href="#order-flow" class="hover:text-ng-silver transition">Cara Pesan</a></li>
+                <li><a href="https://wa.me/6281575672565" class="bg-white text-ng-primary px-5 py-2 rounded-sm font-bold hover:bg-ng-silver transition shadow-md">Hubungi Kami</a></li>
             </ul>
-            <button class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <header id="home" class="relative h-[90vh] bg-ng-dark overflow-hidden">
+    <header id="home" class="relative h-[85vh] bg-ng-dark overflow-hidden">
         <div class="swiper heroSwiper absolute inset-0 w-full h-full">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1617137968427-85924c809a29?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-80" alt="Slide 1"></div>
                 <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1605644130969-4386fb6073af?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-80" alt="Slide 2"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1558507652-2d9626c4e67a?q=80&w=1950&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-80" alt="Slide 3"></div>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-r from-ng-primary via-ng-primary/85 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-ng-primary via-ng-primary/85 to-transparent z-10"></div>
         </div>
         
         <div class="relative z-20 px-6 max-w-7xl mx-auto w-full h-full flex items-center">
             <div class="max-w-3xl border-l-4 border-ng-silver pl-8">
-                <p class="text-ng-silver font-mono text-sm tracking-widest uppercase mb-4 flex items-center gap-2">
-                    <i class="fas fa-map-marker-alt"></i> Wonogiri, Central Java
-                </p>
+                <p class="text-ng-silver font-mono text-sm tracking-widest uppercase mb-4"><i class="fas fa-industry"></i> Manufaktur Garmen Wonogiri</p>
                 <h1 class="font-heading text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
                     MAKE YOUR<br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-ng-silver to-white">DESIGN</span><br>
                     AS YOU LIKE.
                 </h1>
-                <p class="text-gray-300 text-lg mb-10 font-light max-w-xl leading-relaxed">
-                    Manufaktur garmen spesialis seragam, apparel, dan merchandise. Kapasitas hingga 1.000 pcs/bulan dengan garansi kualitas pabrik.
+                <p class="text-gray-300 text-lg mb-8 font-light max-w-xl leading-relaxed">
+                    Spesialis pengadaan seragam instansi, corporate apparel, dan merchandise komunitas. Eksekusi presisi, garansi 100%.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#products" class="bg-ng-silver text-ng-primary px-8 py-4 rounded-sm font-bold hover:bg-white transition uppercase tracking-wider text-sm shadow-lg">Lihat Katalog</a>
-                    <a href="#order-flow" class="border border-ng-silver text-ng-silver px-8 py-4 rounded-sm font-bold hover:bg-ng-silver hover:text-ng-primary transition uppercase tracking-wider text-sm">Cara Pesan</a>
+                    <a href="#gallery" class="bg-ng-silver text-ng-primary px-8 py-4 rounded-sm font-bold hover:bg-white transition uppercase tracking-wider text-sm shadow-lg">Lihat Portfolio</a>
+                    <a href="#order-flow" class="border border-ng-silver text-ng-silver px-8 py-4 rounded-sm font-bold hover:bg-ng-silver hover:text-ng-primary transition uppercase tracking-wider text-sm">Download E-Katalog</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="bg-ng-dark border-b border-white/10 py-6 overflow-hidden relative">
+    <section class="bg-ng-dark border-b border-white/10 py-5 overflow-hidden relative">
         <div class="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-ng-dark to-transparent z-10"></div>
         <div class="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-ng-dark to-transparent z-10"></div>
-        
         <div class="flex items-center gap-8 whitespace-nowrap animate-marquee">
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8 hover:text-ng-silver transition cursor-default">SMA IT Al Huda</span>
-            <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8 hover:text-ng-silver transition cursor-default">SMP IT Al Huda</span>
-            <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8 hover:text-ng-silver transition cursor-default">STKIP Ponorogo</span>
-            <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8 hover:text-ng-silver transition cursor-default">PSHT Wonogiri</span>
-            <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8 hover:text-ng-silver transition cursor-default">SMK 2 Wonogiri</span>
-            <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8 hover:text-ng-silver transition cursor-default">Karang Taruna Bharata</span>
-            <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8 hover:text-ng-silver transition cursor-default">Muda Beda Mundu</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">SMA IT Al Huda</span><span class="text-white/20">•</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">SMP IT Al Huda</span><span class="text-white/20">•</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">STKIP Ponorogo</span><span class="text-white/20">•</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">PSHT Wonogiri</span><span class="text-white/20">•</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">SMK 2 Wonogiri</span><span class="text-white/20">•</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">Muda Beda Mundu</span><span class="text-white/20">•</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">Karang Taruna Bharata</span>
             
             <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8">SMA IT Al Huda</span>
-            <span class="text-white/20">•</span>
-            <span class="text-gray-400 font-heading font-bold text-xl uppercase tracking-widest mx-8">STKIP Ponorogo</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">SMA IT Al Huda</span><span class="text-white/20">•</span>
+            <span class="text-gray-400 font-heading font-bold text-lg uppercase tracking-widest mx-8">STKIP Ponorogo</span>
         </div>
     </section>
 
-    <section class="py-12 bg-white border-b border-ng-gray">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="p-4">
-                <i class="fas fa-box-open text-3xl text-ng-primary mb-3"></i>
-                <h4 class="font-bold text-ng-primary uppercase tracking-wider text-sm mb-1">Low MOQ</h4>
-                <p class="text-xs text-gray-500">Minimal order hanya 12 Pcs untuk semua item.</p>
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-ng-primary font-bold tracking-widest uppercase text-sm font-mono">// Our Masterpieces</span>
+                <h2 class="font-heading text-4xl font-black text-ng-primary mt-3 uppercase tracking-tight">Galeri Produksi</h2>
+                <div class="divider-silver-center"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Jelajahi ratusan project yang telah kami selesaikan dengan standar industri garmen.</p>
             </div>
-            <div class="p-4">
-                <i class="fas fa-industry text-3xl text-ng-primary mb-3"></i>
-                <h4 class="font-bold text-ng-primary uppercase tracking-wider text-sm mb-1">Kapasitas Besar</h4>
-                <p class="text-xs text-gray-500">Mampu memproduksi 500 - 1000 pcs per bulan.</p>
-            </div>
-            <div class="p-4">
-                <i class="fas fa-shield-alt text-3xl text-ng-primary mb-3"></i>
-                <h4 class="font-bold text-ng-primary uppercase tracking-wider text-sm mb-1">100% Garansi</h4>
-                <p class="text-xs text-gray-500">Garansi penuh untuk kualitas bahan & jahitan.</p>
-            </div>
-            <div class="p-4">
-                <i class="fas fa-shipping-fast text-3xl text-ng-primary mb-3"></i>
-                <h4 class="font-bold text-ng-primary uppercase tracking-wider text-sm mb-1">Tepat Waktu</h4>
-                <p class="text-xs text-gray-500">Manajemen waktu produksi yang disiplin.</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="story" class="py-24 bg-ng-light">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="relative h-[500px] w-full">
-                <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-ng-primary z-0"></div>
-                <div class="swiper storySwiper w-full h-full shadow-xl relative z-10 rounded-sm overflow-hidden">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"></div>
-                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"></div>
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active bg-ng-primary text-white px-6 py-2 rounded-sm font-bold uppercase text-xs tracking-wider shadow-md" data-filter="all">Semua Project</button>
+                <button class="filter-btn bg-ng-light text-ng-primary border border-gray-200 px-6 py-2 rounded-sm font-bold uppercase text-xs tracking-wider hover:bg-ng-silver hover:text-white transition" data-filter="pdl">Kemeja / PDL</button>
+                <button class="filter-btn bg-ng-light text-ng-primary border border-gray-200 px-6 py-2 rounded-sm font-bold uppercase text-xs tracking-wider hover:bg-ng-silver hover:text-white transition" data-filter="kaos">Kaos & Polo</button>
+                <button class="filter-btn bg-ng-light text-ng-primary border border-gray-200 px-6 py-2 rounded-sm font-bold uppercase text-xs tracking-wider hover:bg-ng-silver hover:text-white transition" data-filter="jaket">Jaket / Outer</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="portfolio-grid">
+                
+                <div class="portfolio-item jaket relative group overflow-hidden h-72 rounded-sm bg-ng-dark">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-ng-dark to-transparent translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-ng-silver font-mono text-[10px] uppercase tracking-widest">Jaket Bomber</span>
+                        <h4 class="text-white font-bold text-lg">Taslan Milky WP Corporate</h4>
                     </div>
-                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-ng-primary z-0"></div>
+
+                <div class="portfolio-item pdl relative group overflow-hidden h-72 rounded-sm bg-ng-dark">
+                    <img src="https://images.unsplash.com/photo-1603252109303-2751440ee43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-ng-dark to-transparent translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-ng-silver font-mono text-[10px] uppercase tracking-widest">Kemeja Lapangan</span>
+                        <h4 class="text-white font-bold text-lg">Prisma WP / Drill Grade A</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item kaos relative group overflow-hidden h-72 rounded-sm bg-ng-dark">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-ng-dark to-transparent translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-ng-silver font-mono text-[10px] uppercase tracking-widest">T-Shirt Event</span>
+                        <h4 class="text-white font-bold text-lg">Cotton Combed Plastisol</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item jaket relative group overflow-hidden h-72 rounded-sm bg-ng-dark">
+                    <img src="https://images.unsplash.com/photo-1559551409-dadc959f76b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-ng-dark to-transparent translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-ng-silver font-mono text-[10px] uppercase tracking-widest">Outerwear Organisasi</span>
+                        <h4 class="text-white font-bold text-lg">Taslan Salur Windbreaker</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item pdl relative group overflow-hidden h-72 rounded-sm bg-ng-dark">
+                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-ng-dark to-transparent translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-ng-silver font-mono text-[10px] uppercase tracking-widest">Kemeja Korsa Instansi</span>
+                        <h4 class="text-white font-bold text-lg">Combat Twill WP Tactical</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item kaos relative group overflow-hidden h-72 rounded-sm bg-ng-dark">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-ng-dark to-transparent translate-y-4 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-ng-silver font-mono text-[10px] uppercase tracking-widest">Merchandise Distro</span>
+                        <h4 class="text-white font-bold text-lg">Cotton Fleece Hoodie</h4>
+                    </div>
+                </div>
             </div>
-            
-            <div>
-                <span class="text-ng-primary font-bold tracking-widest uppercase text-sm font-mono">// Our Philosophy</span>
-                <h2 class="font-heading text-4xl font-bold text-ng-primary mt-3 mb-2">Partner Cerita Anda.</h2>
-                <div class="divider-silver"></div>
-                <p class="text-xl text-gray-800 font-medium italic mb-6 leading-relaxed border-l-4 border-ng-silver pl-4">"Kami akan menjadi partner kalian membangun cerita yang takkan terlupakan."</p>
-                <p class="text-gray-600 mb-6 leading-relaxed font-light">
-                    Di <strong>National Graphic ID</strong>, selembar kain bukan hanya bahan baku. Ia adalah kanvas tempat Anda melukis kenangan. Entah itu jaket angkatan, kemeja komunitas, atau seragam kerja. Kami menggabungkan <strong>Industrial Precision</strong> dengan sentuhan personal untuk memastikan setiap jahitan kuat menampung cerita perjalanan organisasi Anda.
+
+            <div class="text-center mt-12">
+                <a href="https://instagram.com/nationalgraphic.id" target="_blank" class="inline-flex items-center gap-2 text-ng-primary font-bold border-b border-ng-primary hover:text-ng-silver hover:border-ng-silver transition pb-1">Lihat 500+ Project Lainnya di Instagram <i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-ng-primary text-white border-y-4 border-ng-silver">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex items-center gap-6">
+                <i class="fas fa-file-pdf text-5xl text-ng-silver"></i>
+                <div>
+                    <h3 class="font-heading font-bold text-2xl uppercase tracking-wider mb-1">Company Profile & Price List</h3>
+                    <p class="text-gray-300 text-sm font-light">Unduh portofolio lengkap, legalitas, dan detail spesifikasi bahan produksi kami.</p>
+                </div>
+            </div>
+            <a href="#" class="whitespace-nowrap bg-white text-ng-primary px-8 py-4 rounded-sm font-bold uppercase tracking-wider text-sm shadow-xl hover:bg-ng-silver transition flex items-center gap-3">
+                <i class="fas fa-download"></i> Download PDF
+            </a>
+        </div>
+    </section>
+
+    <section id="materials" class="py-24 bg-ng-light border-b border-ng-gray">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-ng-primary font-bold tracking-widest uppercase text-sm font-mono">// Fabric Collections</span>
+                <h2 class="font-heading text-4xl font-black text-ng-primary mt-3 uppercase tracking-tight">Katalog Material Premium</h2>
+                <div class="divider-silver-center"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto font-light">
+                    Pemilihan material yang tepat adalah kunci kualitas. Kami menyediakan bahan khusus taktis, kasual, hingga anti-air standar pabrik.
                 </p>
-                <a href="https://wa.me/6281575672565" class="inline-flex items-center gap-2 text-ng-primary font-bold hover:text-ng-silver transition border-b-2 border-ng-primary pb-1">Konsultasikan Project Anda <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="products" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-ng-primary font-bold tracking-widest uppercase text-sm font-mono">// Product Lineup</span>
-                <h2 class="font-heading text-4xl font-black text-ng-primary mt-3 uppercase tracking-tight">Katalog Produksi</h2>
-                <div class="divider-silver-center"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">Tiga lini produksi utama. Dikerjakan oleh tenaga ahli dengan standar garmen.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                <div class="bg-white group hover-lift border-t-4 border-ng-silver shadow-xl relative z-10 lg:-mt-6 flex flex-col">
-                    <div class="absolute top-4 left-4 bg-ng-silver text-ng-primary text-[10px] font-black px-3 py-1 uppercase z-20 shadow-md tracking-widest">★ Best Seller</div>
-                    <div class="h-72 overflow-hidden relative bg-ng-dark">
-                        <div class="swiper productSwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                    </div>
-                    <div class="p-8 bg-ng-primary text-white flex-1 flex flex-col">
-                        <h3 class="font-heading text-2xl font-bold mb-3">T-Shirt & Polo</h3>
-                        <p class="text-gray-300 text-sm mb-6 flex-1 font-light leading-relaxed">Merchandise event, seragam kasual, dan kebutuhan distro. Sablon plastisol & discharge awet.</p>
-                        <a href="https://wa.me/6281575672565?text=Halo,%20saya%20mau%20pesan%20Kaos" class="text-center w-full bg-ng-silver text-ng-primary font-bold py-3 text-sm uppercase tracking-wider hover:bg-white transition shadow-lg">Pesan Kaos</a>
-                    </div>
-                </div>
-
-                <div class="bg-white group hover-lift border-t-4 border-ng-primary shadow-lg flex flex-col">
-                    <div class="h-72 overflow-hidden relative bg-ng-dark">
-                         <div class="swiper productSwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1603252109303-2751440ee43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-3">Workwear (PDH/PDL)</h3>
-                        <p class="text-gray-600 text-sm mb-6 flex-1 font-light leading-relaxed">Kemeja seragam tangguh untuk instansi, korporat, maupun organisasi mahasiswa.</p>
-                        <a href="https://wa.me/6281575672565?text=Halo,%20saya%20mau%20pesan%20PDL" class="text-center w-full border-2 border-ng-primary text-ng-primary font-bold py-3 text-sm uppercase tracking-wider hover:bg-ng-primary hover:text-white transition">Pesan Kemeja</a>
-                    </div>
-                </div>
-
-                <div class="bg-white group hover-lift border-t-4 border-ng-primary shadow-lg flex flex-col">
-                    <div class="h-72 overflow-hidden relative bg-ng-dark">
-                         <div class="swiper productSwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1559551409-dadc959f76b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1617137968427-85924c809a29?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90"></div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-3">Jacket & Outerwear</h3>
-                        <p class="text-gray-600 text-sm mb-6 flex-1 font-light leading-relaxed">Jaket Bomber, Parka, Hoodie, dan Varsity dengan material waterproof & windbreaker.</p>
-                        <a href="https://wa.me/6281575672565?text=Halo,%20saya%20mau%20pesan%20Jaket" class="text-center w-full border-2 border-ng-primary text-ng-primary font-bold py-3 text-sm uppercase tracking-wider hover:bg-ng-primary hover:text-white transition">Pesan Jaket</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="materials" class="py-24 bg-ng-light border-y border-ng-gray">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-ng-primary font-bold tracking-widest uppercase text-sm font-mono">// Material Specs</span>
-                <h2 class="font-heading text-4xl font-black text-ng-primary mt-3 uppercase tracking-tight">Katalog Kain</h2>
-                <div class="divider-silver-center"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="border border-ng-gray bg-white rounded-sm flex flex-col md:flex-row overflow-hidden group hover:shadow-xl transition">
                     <div class="md:w-2/5 h-48 md:h-auto overflow-hidden"><img src="https://images.unsplash.com/photo-1605280263929-1c42c62ef169?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
                     <div class="p-6 md:w-3/5 flex flex-col justify-center">
-                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Nagata Drill</h3>
-                        <p class="text-xs text-gray-500 mb-4 font-light">Tebal, dingin, serat diagonal elegan. Standar kemeja PDH/PDL lapangan.</p>
-                        <a href="https://wa.me/6281575672565" class="inline-block bg-ng-primary text-white text-center py-2 text-xs font-bold uppercase tracking-widest hover:bg-ng-silver transition rounded-sm"><i class="fas fa-swatchbook mr-2"></i>Tanya Warna</a>
+                        <span class="text-ng-silver text-[10px] font-mono tracking-widest uppercase mb-1">Kemeja / PDL / Wearpack</span>
+                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Drill & Twill Family</h3>
+                        <p class="text-xs text-gray-500 mb-4 font-light">Tersedia Nagata Drill, American Drill, hingga <strong>Combat Twill WP</strong> dan <strong>Prisma WP</strong> untuk spesifikasi kemeja taktis anti-robek dan water-repellent.</p>
+                        <a href="https://wa.me/6281575672565" class="inline-block bg-ng-primary text-white text-center py-2 text-xs font-bold uppercase tracking-widest hover:bg-ng-silver transition rounded-sm w-max px-4"><i class="fas fa-swatchbook mr-2"></i>Katalog Warna</a>
                     </div>
                 </div>
-                <div class="border border-ng-gray bg-white rounded-sm flex flex-col md:flex-row overflow-hidden group hover:shadow-xl transition">
-                    <div class="md:w-2/5 h-48 md:h-auto overflow-hidden"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                    <div class="p-6 md:w-3/5 flex flex-col justify-center">
-                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Cotton Combed</h3>
-                        <p class="text-xs text-gray-500 mb-4 font-light">100% serat kapas murni. Halus, menyerap keringat. Standar distro.</p>
-                        <a href="https://wa.me/6281575672565" class="inline-block bg-ng-primary text-white text-center py-2 text-xs font-bold uppercase tracking-widest hover:bg-ng-silver transition rounded-sm"><i class="fas fa-swatchbook mr-2"></i>Tanya Warna</a>
-                    </div>
-                </div>
+                
                 <div class="border border-ng-gray bg-white rounded-sm flex flex-col md:flex-row overflow-hidden group hover:shadow-xl transition">
                     <div class="md:w-2/5 h-48 md:h-auto overflow-hidden"><img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
                     <div class="p-6 md:w-3/5 flex flex-col justify-center">
-                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Taslan Milky</h3>
-                        <p class="text-xs text-gray-500 mb-4 font-light">Coating anti-air (waterproof) dan anti-angin. Spesialis Jaket Bomber/Parka.</p>
-                        <a href="https://wa.me/6281575672565" class="inline-block bg-ng-primary text-white text-center py-2 text-xs font-bold uppercase tracking-widest hover:bg-ng-silver transition rounded-sm"><i class="fas fa-swatchbook mr-2"></i>Tanya Warna</a>
-                    </div>
-                </div>
-                <div class="border border-ng-gray bg-white rounded-sm flex flex-col md:flex-row overflow-hidden group hover:shadow-xl transition">
-                    <div class="md:w-2/5 h-48 md:h-auto overflow-hidden"><img src="https://images.unsplash.com/photo-1614881580227-31952a5dc7fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                    <div class="p-6 md:w-3/5 flex flex-col justify-center">
-                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Cotton Fleece</h3>
-                        <p class="text-xs text-gray-500 mb-4 font-light">Luar tebal, dalam berbulu hangat. Material utama Hoodie dan Sweater.</p>
-                        <a href="https://wa.me/6281575672565" class="inline-block bg-ng-primary text-white text-center py-2 text-xs font-bold uppercase tracking-widest hover:bg-ng-silver transition rounded-sm"><i class="fas fa-swatchbook mr-2"></i>Tanya Warna</a>
+                        <span class="text-ng-silver text-[10px] font-mono tracking-widest uppercase mb-1">Outerwear / Windbreaker</span>
+                        <h3 class="font-heading text-2xl font-bold text-ng-primary mb-2">Taslan Collections</h3>
+                        <p class="text-xs text-gray-500 mb-4 font-light">Material pelindung cuaca premium. Tersedia tipe <strong>Taslan Milky</strong> (lapisan karet penahan air) dan <strong>Taslan Salur</strong> (tekstur garis elegan untuk jaket eksklusif).</p>
+                        <a href="https://wa.me/6281575672565" class="inline-block bg-ng-primary text-white text-center py-2 text-xs font-bold uppercase tracking-widest hover:bg-ng-silver transition rounded-sm w-max px-4"><i class="fas fa-swatchbook mr-2"></i>Katalog Warna</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="order-flow" class="py-24 bg-white">
+    <section id="sizechart" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl font-black text-ng-primary uppercase tracking-tight">Panduan Ukuran (Size Chart)</h2>
+                <div class="divider-silver-center"></div>
+                <p class="text-gray-600 text-sm">Pilih kategori garmen untuk melihat detail standar ukuran potongan pabrik kami.</p>
+            </div>
+
+            <div class="flex justify-center border-b border-gray-200 mb-8">
+                <button class="tab-btn active px-8 py-3 text-sm font-bold uppercase tracking-widest text-ng-primary border-b-2 border-ng-primary transition hover:bg-ng-light" onclick="openTab(event, 'tab-kaos')">Kaos / T-Shirt</button>
+                <button class="tab-btn px-8 py-3 text-sm font-bold uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-ng-primary transition hover:bg-ng-light" onclick="openTab(event, 'tab-pdl')">Kemeja / PDL</button>
+                <button class="tab-btn px-8 py-3 text-sm font-bold uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-ng-primary transition hover:bg-ng-light" onclick="openTab(event, 'tab-jaket')">Jaket / Hoodie</button>
+            </div>
+
+            <div id="tab-kaos" class="tab-content active overflow-x-auto">
+                <table class="w-full text-sm text-center text-gray-600 border border-gray-200 shadow-sm">
+                    <thead class="text-xs text-white uppercase bg-ng-primary">
+                        <tr><th class="px-6 py-4">Size</th><th class="px-6 py-4">Lebar Dada (cm)</th><th class="px-6 py-4">Panjang Badan (cm)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">S</td><td>46</td><td>68</td></tr>
+                        <tr class="bg-ng-light border-b"><td class="px-6 py-3 font-bold">M</td><td>48</td><td>70</td></tr>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">L</td><td>50</td><td>72</td></tr>
+                        <tr class="bg-ng-light border-b"><td class="px-6 py-3 font-bold">XL</td><td>52</td><td>74</td></tr>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">XXL</td><td>54</td><td>76</td></tr>
+                    </tbody>
+                </table>
+                <p class="text-[10px] text-gray-400 mt-2 text-right">*Toleransi susut jahitan 1-2 cm.</p>
+            </div>
+
+            <div id="tab-pdl" class="tab-content overflow-x-auto">
+                <table class="w-full text-sm text-center text-gray-600 border border-gray-200 shadow-sm">
+                    <thead class="text-xs text-white uppercase bg-ng-primary">
+                        <tr><th class="px-6 py-4">Size</th><th class="px-6 py-4">Lebar Dada (cm)</th><th class="px-6 py-4">Panjang Badan (cm)</th><th class="px-6 py-4">Pjg. Lengan (cm)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">S</td><td>50</td><td>68</td><td>58</td></tr>
+                        <tr class="bg-ng-light border-b"><td class="px-6 py-3 font-bold">M</td><td>52</td><td>70</td><td>60</td></tr>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">L</td><td>54</td><td>72</td><td>61</td></tr>
+                        <tr class="bg-ng-light border-b"><td class="px-6 py-3 font-bold">XL</td><td>56</td><td>74</td><td>62</td></tr>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">XXL</td><td>58</td><td>76</td><td>63</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+             <div id="tab-jaket" class="tab-content overflow-x-auto">
+                <table class="w-full text-sm text-center text-gray-600 border border-gray-200 shadow-sm">
+                    <thead class="text-xs text-white uppercase bg-ng-primary">
+                        <tr><th class="px-6 py-4">Size</th><th class="px-6 py-4">Lebar Dada (cm)</th><th class="px-6 py-4">Panjang Badan (cm)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">S</td><td>52</td><td>65</td></tr>
+                        <tr class="bg-ng-light border-b"><td class="px-6 py-3 font-bold">M</td><td>54</td><td>68</td></tr>
+                        <tr class="bg-white border-b"><td class="px-6 py-3 font-bold">L</td><td>56</td><td>70</td></tr>
+                        <tr class="bg-ng-light border-b"><td class="px-6 py-3 font-bold">XL</td><td>58</td><td>72</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="order-flow" class="py-24 bg-ng-light border-t border-ng-gray">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-ng-primary font-bold tracking-widest uppercase text-sm font-mono">// How to Order</span>
+                <span class="text-ng-primary font-bold tracking-widest uppercase text-sm font-mono">// SOP Production</span>
                 <h2 class="font-heading text-4xl font-black text-ng-primary mt-3 uppercase tracking-tight">Alur Pemesanan</h2>
                 <div class="divider-silver-center"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">SOP transparan kami untuk memastikan pesanan Anda aman, tepat waktu, dan bergaransi.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-1 bg-ng-gray z-0"></div>
-
-                <div class="relative z-10 text-center bg-white">
-                    <div class="w-24 h-24 mx-auto bg-ng-primary text-ng-silver rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-4 border-white shadow-lg"><i class="fas fa-comments"></i></div>
-                    <h3 class="font-bold text-xl mb-2 text-ng-primary">1. Konsultasi & Desain</h3>
-                    <p class="text-sm text-gray-500">Diskusi bahan, ukuran, jumlah, dan fiksasi desain mockup (Gratis revisi).</p>
+                <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-ng-silver z-0"></div>
+                
+                <div class="relative z-10 text-center bg-ng-light">
+                    <div class="w-24 h-24 mx-auto bg-ng-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-[6px] border-ng-light shadow-xl hover-lift"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-ng-primary uppercase">1. Konsultasi & Mockup</h3>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">Pilih bahan, size, dan acc visualisasi desain mockup (Gratis revisi).</p>
                 </div>
-                <div class="relative z-10 text-center bg-white">
-                    <div class="w-24 h-24 mx-auto bg-ng-primary text-ng-silver rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-4 border-white shadow-lg"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3 class="font-bold text-xl mb-2 text-ng-primary">2. Pembayaran DP</h3>
-                    <p class="text-sm text-gray-500">Pembayaran Down Payment (DP) 50% sebagai tanda jadi masuk antrean produksi.</p>
+                <div class="relative z-10 text-center bg-ng-light">
+                    <div class="w-24 h-24 mx-auto bg-ng-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-[6px] border-ng-light shadow-xl hover-lift"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-ng-primary uppercase">2. Pembayaran DP</h3>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">Sistem DP 50% sebagai tanda jadi untuk masuk antrean mesin produksi.</p>
                 </div>
-                <div class="relative z-10 text-center bg-white">
-                    <div class="w-24 h-24 mx-auto bg-ng-primary text-ng-silver rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-4 border-white shadow-lg"><i class="fas fa-cogs"></i></div>
-                    <h3 class="font-bold text-xl mb-2 text-ng-primary">3. Proses Produksi</h3>
-                    <p class="text-sm text-gray-500">Proses potong kain, bordir/sablon, jahit, hingga Quality Control ketat.</p>
+                <div class="relative z-10 text-center bg-ng-light">
+                    <div class="w-24 h-24 mx-auto bg-ng-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-[6px] border-ng-light shadow-xl hover-lift"><i class="fas fa-cogs"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-ng-primary uppercase">3. Produksi (Bordir/Jahit)</h3>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">Pemotongan kain, sablon/bordir komputer, jahit, hingga Quality Control.</p>
                 </div>
-                <div class="relative z-10 text-center bg-white">
-                    <div class="w-24 h-24 mx-auto bg-ng-primary text-ng-silver rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-4 border-white shadow-lg"><i class="fas fa-box-check"></i></div>
-                    <h3 class="font-bold text-xl mb-2 text-ng-primary">4. Lunas & Kirim</h3>
-                    <p class="text-sm text-gray-500">Pelunasan sisa tagihan, dan barang dikirim aman ke alamat Anda.</p>
+                <div class="relative z-10 text-center bg-ng-light">
+                    <div class="w-24 h-24 mx-auto bg-ng-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-[6px] border-ng-light shadow-xl hover-lift"><i class="fas fa-box-check"></i></div>
+                    <h3 class="font-bold text-lg mb-2 text-ng-primary uppercase">4. Pelunasan & Kirim</h3>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">Packing rapi, pelunasan sisa tagihan, dan pengiriman ke seluruh Indonesia.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="py-24 bg-ng-light border-t border-ng-gray">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl font-bold text-ng-primary uppercase tracking-wider">Pertanyaan Umum (FAQ)</h2>
+                <div class="divider-silver-center"></div>
+            </div>
             
-            <div>
-                <h3 class="font-heading text-2xl font-bold text-ng-primary mb-6 uppercase tracking-wider">Size Chart (Kaos/Polo)</h3>
-                <div class="bg-white rounded-sm shadow-md overflow-hidden border border-ng-gray">
-                    <table class="w-full text-sm text-left text-gray-600">
-                        <thead class="text-xs text-white uppercase bg-ng-primary">
-                            <tr>
-                                <th scope="col" class="px-6 py-4">Size</th>
-                                <th scope="col" class="px-6 py-4">Lebar (Dada)</th>
-                                <th scope="col" class="px-6 py-4">Panjang</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-white border-b">
-                                <td class="px-6 py-4 font-bold">S</td>
-                                <td class="px-6 py-4">46 cm</td>
-                                <td class="px-6 py-4">68 cm</td>
-                            </tr>
-                            <tr class="bg-ng-light border-b">
-                                <td class="px-6 py-4 font-bold">M</td>
-                                <td class="px-6 py-4">48 cm</td>
-                                <td class="px-6 py-4">70 cm</td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <td class="px-6 py-4 font-bold">L</td>
-                                <td class="px-6 py-4">50 cm</td>
-                                <td class="px-6 py-4">72 cm</td>
-                            </tr>
-                            <tr class="bg-ng-light border-b">
-                                <td class="px-6 py-4 font-bold">XL</td>
-                                <td class="px-6 py-4">52 cm</td>
-                                <td class="px-6 py-4">74 cm</td>
-                            </tr>
-                            <tr class="bg-white">
-                                <td class="px-6 py-4 font-bold">XXL</td>
-                                <td class="px-6 py-4">54 cm</td>
-                                <td class="px-6 py-4">76 cm</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="text-xs text-gray-500 mt-2 italic">*Toleransi jahitan 1-2 cm. Untuk size chart PDL dan Jaket, hubungi admin.</p>
+            <div class="space-y-4">
+                <details class="group bg-ng-light border border-ng-gray rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ng-primary">
+                        <span>Berapa Minimum Order Quantity (MOQ)?</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-ng-silver"></i></span>
+                    </summary>
+                    <div class="text-gray-600 text-sm p-6 pt-0 leading-relaxed border-t border-ng-gray mt-2 font-light">
+                        Kabar baik! Kami melayani pemesanan dengan Minimum Order (MOQ) yang sangat rendah, yaitu hanya <strong>12 pcs</strong> (1 lusin) untuk semua jenis item (Kaos, Kemeja, Jaket). Sangat cocok untuk komunitas berkembang hingga pengadaan kantor berskala besar (Kapasitas hingga 1.000 pcs/bulan).
+                    </div>
+                </details>
+                <details class="group bg-ng-light border border-ng-gray rounded-sm shadow-sm cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ng-primary">
+                        <span>Apakah ada Garansi Kualitas?</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-ng-silver"></i></span>
+                    </summary>
+                    <div class="text-gray-600 text-sm p-6 pt-0 leading-relaxed border-t border-ng-gray mt-2 font-light">
+                        <strong>Ya, 100% Bergaransi.</strong> Kami menjamin kualitas bahan, ketepatan ukuran (sesuai toleransi size chart), dan kerapian jahitan/bordir. Jika terdapat cacat produksi yang berasal dari pabrik kami, akan kami perbaiki atau ganti baru tanpa biaya tambahan.
+                    </div>
+                </details>
             </div>
-
-            <div>
-                <h3 class="font-heading text-2xl font-bold text-ng-primary mb-6 uppercase tracking-wider">Pertanyaan Umum (FAQ)</h3>
-                <div class="space-y-4">
-                    <details class="group bg-white border border-ng-gray rounded-sm shadow-sm cursor-pointer">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-ng-primary">
-                            <span>Berapa lama waktu produksinya?</span>
-                            <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
-                        </summary>
-                        <div class="text-gray-600 text-sm p-5 pt-0 leading-relaxed border-t border-ng-gray mt-2">
-                            Estimasi waktu normal adalah 14 hari kerja setelah DP dan desain fix. Waktu bisa lebih cepat atau menyesuaikan tingkat kerumitan dan antrean produksi.
-                        </div>
-                    </details>
-                    
-                    <details class="group bg-white border border-ng-gray rounded-sm shadow-sm cursor-pointer">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-ng-primary">
-                            <span>Bagaimana jika pesanan cacat atau salah?</span>
-                            <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
-                        </summary>
-                        <div class="text-gray-600 text-sm p-5 pt-0 leading-relaxed border-t border-ng-gray mt-2">
-                            Kami memberikan <strong>100% Garansi Bahan dan Kualitas</strong>. Jika ada cacat jahitan luntur, atau salah ukuran dari pihak kami, barang akan kami ganti/perbaiki tanpa biaya tambahan.
-                        </div>
-                    </details>
-                    
-                    <details class="group bg-white border border-ng-gray rounded-sm shadow-sm cursor-pointer">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-ng-primary">
-                            <span>Apakah bisa bantu buatkan desain (Mockup)?</span>
-                            <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
-                        </summary>
-                        <div class="text-gray-600 text-sm p-5 pt-0 leading-relaxed border-t border-ng-gray mt-2">
-                            Tentu! Tim desain grafis kami siap membantu membuatkan visualisasi (mockup) secara gratis setelah Anda memberikan referensi atau sketsa kasar.
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="py-24 bg-ng-primary text-white text-center px-6">
-        <div class="max-w-4xl mx-auto">
-            <i class="fas fa-quote-left text-5xl text-ng-silver opacity-50 mb-6"></i>
-            <h3 class="text-2xl md:text-4xl font-light font-heading leading-relaxed mb-8">
-                "Hasil bordirnya sangat rapi dan pengerjaan tepat waktu. Jaket angkatan kami terlihat sangat profesional dan eksklusif. Terima kasih National Graphic!"
-            </h3>
-            <p class="font-bold text-ng-silver tracking-widest uppercase">Perwakilan Himpunan Mahasiswa</p>
         </div>
     </section>
 
     <footer class="bg-ng-dark text-gray-400 py-16 text-sm font-light">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
             <div class="md:col-span-2">
-                <h4 class="text-white font-heading font-black text-2xl mb-2 tracking-wider uppercase">National Graphic ID</h4>
-                <p class="text-xs text-ng-silver uppercase tracking-widest mb-6 font-mono">A Subsidiary of National Ind Group</p>
+                <h4 class="text-white font-heading font-black text-2xl mb-1 tracking-wider uppercase">National Graphic ID</h4>
+                <p class="text-[10px] text-ng-silver uppercase tracking-widest mb-6 font-mono">A Subsidiary of National Ind Group</p>
                 <p class="mb-6 leading-relaxed max-w-sm">
-                    Manufaktur garmen profesional spesialis seragam dan merchandise. Menjamin kualitas pabrik langsung dari Wonogiri untuk seluruh wilayah Indonesia.
+                    Manufaktur garmen profesional spesialis seragam instansi dan merchandise komunitas. Eksekusi presisi pabrik langsung dari Wonogiri.
                 </p>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com/nationalgraphic.id" class="w-10 h-10 border border-gray-700 rounded-sm flex items-center justify-center text-white hover:bg-ng-silver hover:text-ng-primary hover:border-ng-silver transition"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
             
             <div>
-                <h4 class="text-white font-heading font-bold text-lg mb-6 uppercase tracking-wider">Workshop</h4>
-                <ul class="space-y-4">
+                <h4 class="text-white font-heading font-bold text-sm mb-6 uppercase tracking-widest border-l-2 border-ng-silver pl-2">Workshop</h4>
+                <ul class="space-y-4 text-xs font-mono">
                     <li class="flex items-start gap-3">
                         <i class="fas fa-map-marker-alt mt-1 text-ng-silver"></i> 
                         <span>Mundu RT 01 / RW 04,<br>Kel. Purworejo, Kec. Wonogiri,<br>Jawa Tengah 57612.</span>
@@ -458,59 +409,86 @@
             </div>
             
             <div>
-                <h4 class="text-white font-heading font-bold text-lg mb-6 uppercase tracking-wider">Contact</h4>
-                <ul class="space-y-4">
+                <h4 class="text-white font-heading font-bold text-sm mb-6 uppercase tracking-widest border-l-2 border-ng-silver pl-2">Contact</h4>
+                <ul class="space-y-4 text-xs font-mono">
                     <li class="flex items-center gap-3">
                         <i class="fas fa-phone text-ng-silver"></i> 
                         <a href="https://wa.me/6281575672565" class="text-white font-bold hover:text-ng-silver transition">0815-7567-2565</a>
                     </li>
                     <li class="flex items-center gap-3">
-                        <i class="fab fa-instagram text-ng-silver"></i> 
-                        <a href="https://instagram.com/nationalgraphic.id" class="hover:text-white transition">@nationalgraphic.id</a>
+                        <i class="fas fa-envelope text-ng-silver"></i> 
+                        <span>produksi@nationalgraphic.id</span>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <div class="border-t border-white/10 mt-12 pt-8 text-center text-[10px] md:text-xs uppercase tracking-widest text-gray-600 max-w-7xl mx-auto px-6">
-            &copy; 2026 National Graphic ID & National Ind Group. All Rights Reserved.
+        <div class="mt-8 text-center text-[10px] uppercase tracking-widest text-gray-500">
+            &copy; 2026 National Graphic ID (National Ind Group). All Rights Reserved.
         </div>
     </footer>
 
-    <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        <a href="https://wa.me/6281575672565?text=Halo%20National%20Graphic,%20saya%20mau%20konsultasi%20pembuatan%20seragam." target="_blank" class="bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition border-2 border-white animate-bounce">
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/6281575672565" target="_blank" class="bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition border-2 border-white animate-bounce" title="Hubungi Kami">
             <i class="fab fa-whatsapp text-3xl"></i>
         </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <script>
-        var heroSwiper = new Swiper(".heroSwiper", {
-            spaceBetween: 0,
-            effect: "fade",
-            loop: true,
-            autoplay: { delay: 5000, disableOnInteraction: false },
+        /* 1. Inisialisasi Slider (Hero & Product) */
+        new Swiper(".heroSwiper", { effect: "fade", loop: true, autoplay: { delay: 4000 } });
+        document.querySelectorAll(".productSwiper").forEach(el => {
+            new Swiper(el, { loop: true, navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') }});
         });
 
-        var storySwiper = new Swiper(".storySwiper", {
-            spaceBetween: 30,
-            loop: true,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            pagination: { el: ".swiper-pagination", clickable: true },
-        });
+        /* 2. Sistem Filter Portfolio (Ala Moko) */
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-        var productSwipers = document.querySelectorAll(".productSwiper");
-        productSwipers.forEach(function(swiperElement) {
-            new Swiper(swiperElement, {
-                spaceBetween: 0,
-                loop: true,
-                navigation: {
-                    nextEl: swiperElement.querySelector('.swiper-button-next'),
-                    prevEl: swiperElement.querySelector('.swiper-button-prev'),
-                },
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset Active Class pada Tombol
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-ng-primary', 'text-white');
+                    b.classList.add('bg-ng-light', 'text-ng-primary');
+                });
+                btn.classList.remove('bg-ng-light', 'text-ng-primary');
+                btn.classList.add('bg-ng-primary', 'text-white');
+
+                // Logika Filter Gambar
+                const filterValue = btn.getAttribute('data-filter');
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.classList.remove('hide');
+                        item.classList.add('show');
+                    } else {
+                        item.classList.remove('show');
+                        item.classList.add('hide');
+                    }
+                });
             });
         });
+
+        /* 3. Sistem Tab Size Chart (Ala Moko) */
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            // Sembunyikan semua isi tab
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            // Reset style semua tombol tab
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("text-ng-primary", "border-ng-primary");
+                tablinks[i].classList.add("text-gray-400", "border-transparent");
+            }
+            // Tampilkan tab yang dipilih
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.remove("text-gray-400", "border-transparent");
+            evt.currentTarget.classList.add("text-ng-primary", "border-ng-primary");
+        }
     </script>
 </body>
 </html>
